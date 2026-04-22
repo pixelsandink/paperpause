@@ -58,10 +58,10 @@ export default function Home() {
         <div className="w-full fade-up fade-up-delay-4">
           <div className="text-center mb-10">
             <h2 className="font-serif text-3xl text-slate-600 mb-3">
-              Build your monthly schedule
+              Themed monthly prompts
             </h2>
             <p className="font-sans text-slate-500 text-base">
-              Pick a theme. Get a full month of prompts, ready to print.
+              A full month of prompts around a theme you choose — delivered to your inbox.
             </p>
           </div>
           <MonthlySchedule />
