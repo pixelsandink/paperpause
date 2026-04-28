@@ -54,6 +54,30 @@ export default function Home() {
           <div className="flex-1 h-px bg-lilac-200" />
         </div>
 
+        {/* Free download */}
+        <div className="w-full max-w-md mx-auto text-center mb-16 fade-up fade-up-delay-4">
+          <h2 className="font-serif text-2xl text-slate-600 mb-2">
+            Free May prompt sheet
+          </h2>
+          <p className="font-sans text-slate-500 text-sm mb-6">
+            31 journaling prompts for May — one for every day. Print it, stick it in your journal, and write.
+          </p>
+          <a
+            href="/api/freebie"
+            target="_blank"
+            className="inline-block rounded-full border border-lilac-300 bg-white px-8 py-3 text-sm font-sans text-lilac-500 transition-all duration-200 hover:bg-lilac-400 hover:text-white hover:border-lilac-400"
+          >
+            Download PDF
+          </a>
+        </div>
+
+        {/* Divider */}
+        <div className="flex items-center gap-4 w-full max-w-2xl mb-16">
+          <div className="flex-1 h-px bg-lilac-200" />
+          <span className="text-lilac-300 text-lg select-none">✦</span>
+          <div className="flex-1 h-px bg-lilac-200" />
+        </div>
+
         {/* Monthly schedule generator */}
         <div className="w-full fade-up fade-up-delay-4">
           <div className="text-center mb-10">

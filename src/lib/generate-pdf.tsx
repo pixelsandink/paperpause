@@ -153,7 +153,46 @@ function PromptSheet({ themeId, month, year }: PromptSheetProps) {
   )
 }
 
-// ── Export function ──────────────────────────────────────────────────
+// ── Custom prompt sheet (no theme) ──────────────────────────────────
+interface FreeSheetProps {
+  title: string
+  subtitle: string
+  prompts: string[]
+}
+
+function FreeSheet({ title, subtitle, prompts }: FreeSheetProps) {
+  return (
+    <Document
+      title={`${title} — Paper Pause Club`}
+      author="Paper Pause Club"
+      subject={subtitle}
+    >
+      <Page size="A4" style={styles.page}>
+        <View style={styles.header}>
+          <Text style={styles.monthTitle}>{title}</Text>
+          <Text style={styles.themeLabel}>{subtitle}</Text>
+        </View>
+
+        <View style={styles.divider} />
+
+        {prompts.map((prompt, i) => (
+          <View key={i} style={styles.promptRow} wrap={false}>
+            <Text style={styles.dayNumber}>{i + 1}.</Text>
+            <Text style={styles.promptText}>{prompt}</Text>
+          </View>
+        ))}
+
+        <View style={styles.footer} fixed>
+          <Text style={styles.watermark}>
+            paperpause<Text style={styles.watermarkDot}>.</Text>club
+          </Text>
+        </View>
+      </Page>
+    </Document>
+  )
+}
+
+// ── Export functions ─────────────────────────────────────────────────
 export async function generatePromptPDF(
   themeId: string,
   month: number,
@@ -161,6 +200,17 @@ export async function generatePromptPDF(
 ): Promise<Buffer> {
   const buffer = await renderToBuffer(
     <PromptSheet themeId={themeId} month={month} year={year} />
+  )
+  return Buffer.from(buffer)
+}
+
+export async function generateFreePromptPDF(
+  title: string,
+  subtitle: string,
+  prompts: string[]
+): Promise<Buffer> {
+  const buffer = await renderToBuffer(
+    <FreeSheet title={title} subtitle={subtitle} prompts={prompts} />
   )
   return Buffer.from(buffer)
 }
